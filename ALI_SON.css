@@ -1,0 +1,64 @@
+
+body {
+    background-color: #000;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+#ui {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+/* ESTILO EXACTO DE TU IMAGEN */
+.love_word {
+    color: #ea80b0;
+    font-size: 1.4rem;
+    /* Inclinación exacta de la captura */
+    transform: translateY(-100%) rotateZ(-30deg);
+    text-shadow: 0 0 10px #fff;
+    letter-spacing: 2px;
+    white-space: nowrap;
+    font-family: Arial, sans-serif;
+}
+
+/* ANIMACIÓN ACELERADA */
+.love_horizontal {
+    position: absolute;
+    transform-style: preserve-3d;
+    /* Movimiento rápido de 2 segundos */
+    animation: horizontal 2000ms infinite alternate ease-in-out;
+    animation-delay: calc(var(--i) * -300ms);
+}
+
+@keyframes horizontal {
+    from {
+        transform: translateZ(-80px) rotateY(-15deg);
+    }
+    to {
+        transform: translateZ(80px) rotateY(15deg);
+    }
+}
+
+/* Efecto de resplandor de fondo */
+body::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(234, 128, 176, 0.2) 0%, transparent 70%);
+    filter: blur(50px);
+    animation: pulse-bg 4s infinite alternate;
+}
+
+@keyframes pulse-bg {
+    from { transform: scale(1); opacity: 0.5; }
+    to { transform: scale(1.5); opacity: 0.8; }
+}
